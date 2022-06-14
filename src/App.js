@@ -25,9 +25,13 @@ export class App extends Component {
 
   addTransactions = async (transaction) => {
     if (this.state.balance + transaction.amount >= 0) {
-      await axios.post(`http://localhost:4200/transaction`, transaction)
-      this.loadDbData()
-      return
+      try {
+        await axios.post(`http://localhost:4200/transaction`, transaction)
+        this.loadDbData()
+        return
+      } catch (error) {
+         console.log(error);
+      }
     }
     alert("you can not compelete this transaction, you do not have enough in your balance")
   }
@@ -48,8 +52,13 @@ export class App extends Component {
 
  
   deleteTransaction = async (transactionId) => {
-    await axios.delete(`http://localhost:4200/transaction/${transactionId}`)
-    this.loadDbData()
+    try {
+      await axios.delete(`http://localhost:4200/transaction/${transactionId}`)
+      this.loadDbData()
+      
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   render() {
