@@ -1,38 +1,151 @@
-.App {
-  text-align: center;
+:root {
+    --card-shadow: 0 1px 4px 0px rgba(0, 0, 0, 0.1);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+*:focus {
+    outline: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+body {
+    background-color: #F0F2F5;
 }
 
-.App-link {
-  color: #61dafb;
+label {
+    margin-right: 5px;
+    font-weight: bold;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1100px;
+}
+
+.container.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 100px);
+}
+
+.card {
+    width: 100%;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.card>*:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+button {
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    padding: 15px 30px;
+    color: white;
+    background-color: #1B74E4;
+    border-radius: 10px;
+}
+
+button.danger {
+    background-color: #FF495C;
+}
+
+input {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 18px;
+}
+
+header {
+    background-color: #333;
+    margin-bottom: 40px;
+}
+
+#main-header {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#main-links {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+#main-links>a {
+    display: block;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+span{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+h1{
+   margin-bottom: 8px; 
+   color: #00a6ff;
+}
+
+#main-links>a:hover {
+    background-color: #111;
+}
+
+a.active {
+    background-color: #00a6ff;
+}
+
+.balance {
+    font-weight: bold;
+    padding: 8px;
+    color: white;
+}
+
+#transactions-container .transaction {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+#transactions-container .transaction:not(:last-child) {
+    margin-bottom: 30px;
+    
+}
+
+#transactions-container .transaction p {
+    font-size: 20px;
+}
+
+#transactions-container .transaction >* {
+    margin: 0;
 }
